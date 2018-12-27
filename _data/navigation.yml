@@ -2,6 +2,12 @@
 
 - title: Home
   url: /
+- title: Costumes
+  url: /costumes/
+- title: Tutorials
+  url: /tutorials/
+- title: About Me
+  url: /about/
 # - title: Posts
 #   url: /posts/
 # - title: Categories

@@ -1,17 +1,47 @@
----
-layout: page
----
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.1.1
+    Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="{{ page.lang | default: site.lang | default: 'en-US' }}" class="no-js">
+  {% include head.html %}
 
-{{ content }}
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} {% if page.entries_layout == 'grid' %}page--wide{% endif %} {{ page.title | slugify }}">
+    {% include skip-links.html %}
+    {% include navigation.html %}
+    <!-- customizing masthead for my purposes -->
+    <header class="masthead">
+      <div class="wrap">
+        <a href="{{ '/' | relative_url }}" class="site-logo" rel="home" title="{{ site.title }}">
+          <img src="{{ site.logo | relative_url }}" class="site-logo-img animated fadeInDown" alt="{{ site.title }}">
+        </a>
+      </div>
+      <div class="hero-image">
+        <div class="hero-text">
+        <p>Welcome to</p>
+        <p class="title"><i>Cosplay in Disarray</i></p>
+        <p>Occasionally award winning cosplayer.<br> Always fueled by caffeine.</p>
+        </div>
+      </div>
+    </header>
+    
+    <main id="main" class="main-content" aria-label="Content">
+      <div class="page-wrapper">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula dui, porttitor nec tortor in, pulvinar accumsan risus. Ut laoreet posuere nunc, in tempus lacus consectetur sed. Fusce consectetur ornare nulla, vel tincidunt lacus consequat sed. Nam nec porttitor eros, sed fermentum nulla. Sed vehicula tempor ligula quis auctor. Pellentesque posuere purus in augue mollis aliquet. Fusce dui justo, sodales quis interdum sit amet, suscipit ut libero. Sed et nulla a mauris sagittis feugiat sed ac velit. Praesent eget sapien justo. Duis varius, quam at dictum euismod, mauris sem placerat lectus, in malesuada justo est id risus. Etiam ac nulla tempus, ultrices est id, gravida arcu. Mauris diam lectus, vehicula eu magna in, dapibus aliquam mauris. Sed bibendum magna lobortis, faucibus dui eu, fermentum dolor. Donec sagittis magna at magna pretium tristique. Vestibulum ligula felis, placerat at nisl facilisis, bibendum semper massa.</p>
+        <p>Nam vulputate vitae turpis sed rhoncus. Ut non risus non dolor ultrices laoreet eget vel leo. Sed luctus mauris lorem, sodales pulvinar magna pharetra a. Quisque efficitur risus lectus, quis efficitur leo malesuada in. Suspendisse et neque at enim eleifend commodo. Aliquam semper placerat dignissim. Ut ultricies elementum dolor, sodales blandit sem consectetur at. Fusce dapibus urna scelerisque sollicitudin accumsan. Aliquam lectus ante, pharetra id tempus sed, varius quis sapien. Aenean sem mi, vehicula sit amet quam quis, maximus viverra urna. Aliquam ullamcorper metus at lectus mollis consequat. Maecenas eget ligula et felis pretium mollis.</p>
+        <p>Quisque a aliquet dolor. Integer consequat, magna quis varius ultricies, neque nisl euismod mauris, at sollicitudin mi erat ac metus. Vestibulum congue efficitur massa sed efficitur. In cursus efficitur purus, ac imperdiet orci scelerisque a. Vivamus purus justo, facilisis id leo non, feugiat sollicitudin felis. Vivamus imperdiet nibh a nibh imperdiet pulvinar. Donec at eros hendrerit, efficitur augue vitae, varius mauris. Aliquam erat volutpat. Sed arcu tellus, ultricies non metus non, euismod finibus nisl. Praesent imperdiet commodo elit id mattis. Nulla venenatis molestie ullamcorper.</p>
+        <div class="text-center">
+          <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'K3K15X86');kofiwidget2.draw();</script> 
+        </div>
+      </div>
+    </main>
 
-<div class="entries-{{ page.entries_layout | default: 'list' }}">
-  {%- if site.plugins contains 'jekyll-paginate' and page.paginate or site.gems contains 'jekyll-paginate' and page.paginate -%}
-    {%- comment -%}
-      Add paginator.posts loop if jekyll-paginate plugin is enabled
-      and page.paginate == true
-    {%- endcomment -%}
-    {% include posts-paginated.html %}
-  {%- else -%}
-    {% include posts-limit.html %}
-  {%- endif -%}
-</div>
+    {{ content }}
+
+    {% include footer.html %}
+    {% include scripts.html %}
+  </body>
+
+</html>
